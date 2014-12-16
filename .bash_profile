@@ -18,7 +18,6 @@
 #	8.3. Ruby on Rails
 #  9.   Reminders & Notes
 #  10. Git and Git-Flow
-#  11. Daisy
 #  ---------------------------------------------------------------------------
 
 #   -------------------------------
@@ -334,9 +333,3 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
     alias gita='git add -A'
     alias gitc='git commit -m'
     alias gitp='git push'
-
-#   ---------------------------------------
-#     11. Daisy - specific command
-#   ---------------------------------------
-    alias jtest="NODE_ENV=test ./node_modules/.bin/mocha"
-    export DAISYAPI_STATSD_CONSOLE_LOG=1
