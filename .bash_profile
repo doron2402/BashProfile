@@ -18,6 +18,9 @@
 #	8.3. Ruby on Rails
 #  9.   Reminders & Notes
 #  10. Git and Git-Flow
+#  11. Git Show Current Branch Name (show git branch name in command line)
+#  12. DOCKER
+#  13. NVM
 #  ---------------------------------------------------------------------------
 
 #   -------------------------------
@@ -333,3 +336,37 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
     alias gita='git add -A'
     alias gitc='git commit -m'
     alias gitp='git push'
+
+
+
+#  -------------------------------------------------
+#	11. Git Branch Name
+#  -------------------------------------------------
+
+function parse_git_branch () {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+ 
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+NO_COLOR="\[\033[0m\]"
+ 
+PS1="$GREEN\u@\h$NO_COLOR:\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
+
+
+#   ----------------------------------------------------
+#	12. Docker
+#   ----------------------------------------------------
+
+  export DOCKER_HOST=tcp://192.168.59.103:2376
+  export DOCKER_CERT_PATH=/Users/dsegal/.boot2docker/certs/boot2docker-vm
+  export DOCKER_TLS_VERIFY=1
+
+
+#  -------------------------------------------------------
+#	13. NVM
+#  -------------------------------------------------------
+
+  export NVM_DIR=~/.nvm
+  source $(brew --prefix nvm)/nvm.sh
